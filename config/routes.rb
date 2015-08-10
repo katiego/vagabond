@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 # Post routes
 root 'posts#index'
+get "/new", to: "posts#new"
 resources :posts, only: [:new, :edit, :update, :create, :destroy, :show]
 
 # User routes
@@ -11,7 +12,8 @@ resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
 
 # Session routes
 get "/login", to: "sessions#new"
-get "/logout", to: "sessions#destroy"
+post "/login", to: "session#create"
+delete "/logout", to: "sessions#destroy"
 resources :sessions, only: [:create, :destroy]
 
 

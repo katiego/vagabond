@@ -1,3 +1,45 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  background-image: image-url('header-img.jpg');
+  height: 415px;
+  background-position: center top;
+}
+
+/*====== NAVIGATION BAR ======*/
+
+#header {
+	 background-color: #000;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-container {
+}
+
+.navbar.navbar-fixed-top.fixed-theme {
+    background-color: #222;
+    border-color: #080808;
+    box-shadow: 0 0 5px rgba(0,0,0,.8);
+}
+
+.navbar-brand.fixed-theme {
+    font-size: 18px;
+}
+
+.navbar-container.fixed-theme {
+    padding: 0;
+}
+
+.navbar-brand.fixed-theme,
+.navbar-container.fixed-theme,
+.navbar.navbar-fixed-top.fixed-theme,
+.navbar-brand,
+.navbar-container{
+    transition: 0.8s;
+    -webkit-transition:  0.8s;
+}

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 # Post routes
 root 'posts#index'
+get "/new", to: "posts#new"
 resources :posts, only: [:new, :edit, :update, :create, :destroy, :show]
 
 # User routes

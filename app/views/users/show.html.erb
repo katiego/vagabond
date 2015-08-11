@@ -1,9 +1,24 @@
 <div class="container">
     <div class="col-md-3 col-md-offset-1">
-        <p><%= current_user.first_name.capitalize %>  <%= current_user.last_name %></p>
+        <p><%= current_user.first_name.titleize %>  <%= current_user.last_name.titleize %></p>
         <p>Your Location: <%= current_user.city %></p>
+        <p>Join Date: <%= current_user.created_at.strftime("%b %d, %Y") %> <br>
+        <%= link_to "Edit", edit_user_path(current_user) %>	
     </div>
+    
     <div class="col-md-7">
+	
+     <% current_user.posts.each do |post| %>
+    		<h4> <%= link_to post.title, post_path(post) %> </h4> <br> 
+		    <%= link_to 'Delete', post_path(post), method: :delete, 
+		    	data: { confirm: 'Are you sure?' } %>
+		    <%= link_to 'Edit', edit_post_path(post) %> 
+    <% end  %> 	
 
-    </div>
-</div>
+
+	</div>
+
+	<%= link_to "Add Post", new_post_path %>
+
+	</div>
+</div>	

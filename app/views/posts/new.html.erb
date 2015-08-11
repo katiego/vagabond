@@ -1,14 +1,19 @@
 
+<%= form_for @post do |f| %>
  <p>
-   <%= f.label :title %><br>
-   <%= f.text_field :title %>
+   Title: <%= f.text_field :title %>
  </p>
 
  <p>
-   <%= f.label :text %><br>
-   <%= f.text_area :text %>
+   Body: <%= f.text_area :body %>
  </p>
+
+  <p>
+   Your name: <%= f.text_area :author %>
+  </p>
 
  <p>
    <%= f.submit %>
  </p>
+
+<% end  %>

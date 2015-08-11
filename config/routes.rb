@@ -3,16 +3,17 @@ Rails.application.routes.draw do
 # Post routes
 root 'posts#index'
 get "/new", to: "posts#new"
-resources :posts, only: [:new, :edit, :update, :create, :destroy, :show]
+resources :posts
 
 # User routes
 get "/signup", to: "users#new"
 get "/profile", to: "users#show"
-resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
+resources :users
+
 
 # Session routes
 get "/login", to: "sessions#new"
-post "/login", to: "session#create"
+post "/login", to: "sessions#create"
 delete "/logout", to: "sessions#destroy"
 resources :sessions, only: [:create, :destroy]
 

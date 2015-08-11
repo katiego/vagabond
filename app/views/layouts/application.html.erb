@@ -15,7 +15,7 @@
 <body>
 	<!-- start navigation bar -->
 	<!-- Fixed navbar -->
-	<nav id="header" class="navbar navbar-fixed-top">
+	<nav id="header" class="navbar-top">
 		<div id="header-container" class="container navbar-container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -27,9 +27,13 @@
 				<a id="brand" class="navbar-brand" href="#">Vagabond</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
-				<ul class="nav navbar-nav pull-right">
-					<li><a href="/login">Log In</a></li>
-				</ul>
+                <ul class="nav navbar-nav pull-right">
+                    <% if current_user %> 
+                		<li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+             		<% else %> 
+		            	<li><%= link_to "Login", 'login' %></li> 
+		            <% end %>	
+              	</ul>  	
 			</div><!-- /.nav-collapse -->
 		</div><!-- /.container -->
 	</nav><!-- /.navbar -->
@@ -39,4 +43,3 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
-

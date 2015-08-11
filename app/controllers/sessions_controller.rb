@@ -1,34 +1,21 @@
 class SessionsController < ApplicationController
-  
-  # login form
   def new
-    if current_user
-      redirect_to profile_path
-    else
-      render :new
-    end
   end
 
-  # authenticate the user, set session, redirect
   def create
-    user = User.find_by_email(user_params[:email])
-    if user && user.authenticate(user_params[:password])
-      session[:user_id] = user.id
-      redirect_to profile_path
+    @user =
+    User.find_by_email(params[:session] [:email])
+    if @user &&
+      @user.authenticate(params[:session] [:password])
+      session[:user_id] = @user.id
+      redirect_to '/profile'
     else
-      redirect_to login_path
+      redirect_to '/login'
     end
   end
 
-  # clear session (log out user)
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to '/'
   end
-
-  private
-    def user_params
-      params.require(:user).permit(:email, :password)
-    end
-
 end

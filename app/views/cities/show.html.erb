@@ -1,0 +1,10 @@
+<%= @city.name %>
+
+<%= link_to "Add Post", new_city_post_path(@city.id) %>
+
+<% @city.posts.each do |post| %>
+		<h4> <%= link_to post.title, post_path(post) %> </h4> <br> 
+	    <%= link_to 'Delete', post_path(post), method: :delete, 
+	    	data: { confirm: 'Are you sure?' } %>
+	    <%= link_to 'Edit', edit_post_path(post) %> 
+<% end  %> 

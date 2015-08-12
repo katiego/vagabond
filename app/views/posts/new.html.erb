@@ -1,4 +1,5 @@
 
+
 <%= form_for @post do |f| %>
  <p>
    Title: <%= f.text_field :title %>
@@ -11,7 +12,7 @@
   <p>
    Your name: <%= f.text_area :author %>
   </p>
-
+  <%= f.hidden_field :city_id, value: @city.id %>
  <p>
    <%= f.submit %>
  </p>

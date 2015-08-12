@@ -3,15 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-  background-image: image-url('header-img.jpg');
-  height: 415px;
+  height: 250px;
   background-position: center top;
+  background-color: #FFF;
+  margin-top: -60px;
 }
 
 /*====== NAVIGATION BAR ======*/
 
 #header {
-	 background-color: #000;
+	 background-color: #FFF;
 }
 
 .navbar-brand {

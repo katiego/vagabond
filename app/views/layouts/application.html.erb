@@ -11,26 +11,28 @@
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>	
-
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- start navigation bar -->
 	<!-- Fixed navbar -->
 	<nav id="header" class="navbar-top">
-		<div id="header-container" class="container navbar-container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a id="brand" class="navbar-brand" href="#"><img src="http://www.cliparthut.com/clip-arts/363/pink-paw-print-clip-art-363553.png" style="width: 25px;"></a>
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle Navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+				<a id="brand" class="navbar-brand" href="/"><img src="http://www.cliparthut.com/clip-arts/363/pink-paw-print-clip-art-363553.png" style="width: 25px;"></a>
 			</div>
-			<div id="navbar" class="collapse navbar-collapse">
+			<div id="navbar">
                 <ul class="nav navbar-nav pull-right">
                     <% if current_user %> 
-                		<li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+                		<li><%= link_to "Profile", profile_path %></li>
+                		<li><%= link_to "Log out", logout_path, method: "delete" %></li>
              		<% else %> 
 		            	<li><%= link_to "Login", 'login' %></li> 
 		            <% end %>	

@@ -6,4 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-cities = City.create([{name: 'San Francisco'}])
+City.create([{name: 'San Francisco', city_img: 'https://images.unsplash.com/8/sf-rowing.JPG?q=80&fm=jpg&s=30aeb93c1a2a6d59d56c44674cd05d1f'}])
+City.create([{name: 'Portland', city_img: ''}])

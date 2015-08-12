@@ -1,6 +1,6 @@
 class City < ActiveRecord::Base
 	
-	extend FriendlyId
+  extend FriendlyId
   friendly_id :name, use: :slugged
 
   has_many :posts

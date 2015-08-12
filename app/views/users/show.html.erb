@@ -1,24 +1,23 @@
 <div class="container">
+    <br><br><br>
     <div class="col-md-3 col-md-offset-1">
-        <%= image_tag current_user.avatar.url(:medium), class: "img-circle" %>
+        <br>
+        <%= image_tag current_user.avatar.url(:medium), class: "img-circle" %> <br><br>
         <p><%= current_user.first_name.titleize %>  <%= current_user.last_name.titleize %></p>
         <p>Your Location: <%= current_user.city %></p>
-        <p>Join Date: <%= current_user.created_at.strftime("%b %d, %Y") %> <br>
-        <%= link_to "Edit", edit_user_path(current_user) %>	
+        <p>Join Date: <%= current_user.created_at.strftime("%b %d, %Y") %> 
+        <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_user_path(current_user) %>    
     </div>
+    <br><br><br>
+    <div class="col-md-7 well">
     
-    <div class="col-md-7">
-	
      <% current_user.posts.each do |post| %>
-    		<h4> <%= link_to post.title, post_path(post) %> </h4> <br> 
-		    <%= link_to 'Delete', post_path(post), method: :delete, 
-		    	data: { confirm: 'Are you sure?' } %>
-		    <%= link_to 'Edit', edit_post_path(post) %> 
-    <% end  %> 	
-
-
-	</div>
-
-
-	</div>
-</div>	
+            <%= link_to post.title, post_path(post) %><br>
+        <p><%= post.body %></p>
+            <%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, post_path(post), method: :delete, 
+                data: { confirm: 'Are you sure?' } %>
+            <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_post_path(post) %>  <br><br>
+    <% end  %>     
+    </div>
+  </div>
+</div>  

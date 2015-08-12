@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
 
 	has_attached_file :avatar,
                    :styles => { :medium => "150x150>", :thumb => "44x44>" },
-                   :default_url => "/images/:style/missing.png"
+                   :default_url => "http://41.media.tumblr.com/45a83a77dcdaf351a9be2d4a7441551f/tumblr_n8039s4bbq1s8mgkyo8_500.jpg"
 
  	validates_attachment :avatar, :presence => true,
                       :content_type => { :content_type => ["image/jpeg", "image/jpg", "image/gif", "image/png"] },
-                      :size => { :in => 0..1000.kilobytes }
+                      :size => { :in => 0..100000000.kilobytes }
 end

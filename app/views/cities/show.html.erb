@@ -1,11 +1,27 @@
-<%= @city.name %>
+
+
+<div class="container">
+<div class="col-md-6">
+	<br>
+	<img src="<%= @city.city_img %>" class="city_img" />
+</div>
+<div class="col-md-6 well">
+	<h1>San Francisco</h1>
+<p>
+	<% @city.posts.each do |post| %>
+		<%= link_to post.title.capitalize, post_path(post) %> - By: <%= post.user.first_name.titleize %> <br>
+		<!--  -->
+		<%= link_to '', post_path(post), method: :delete, 
+			data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %>
+		<%= link_to '', edit_post_path(post), class: 'glyphicon glyphicon-pencil' %> <br> <br>
+	<% end  %> 
+
+</p>
 
 <%= link_to "Add Post", new_city_post_path(@city.id) %>
 
-<% @city.posts.each do |post| %>
-		<h4> <%= link_to post.title, post_path(post) %> </h4> <br> 
-		<%= post.user.first_name %>
-	    <%= link_to 'Delete', post_path(post), method: :delete, 
-	    	data: { confirm: 'Are you sure?' } %>
-	    <%= link_to 'Edit', edit_post_path(post) %> 
-<% end  %> 
+</div>
+</div>
+</div>
+
+

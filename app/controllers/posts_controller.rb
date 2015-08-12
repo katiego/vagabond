@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
     def show
         @post = Post.find(params[:id])
+
     end
 
     def new
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
         @post = current_user.posts.create(post_params)
 
         if @post.save
-           redirect_to '/'
+           redirect_to post_path(@post)
          else
            render 'new'
          end

@@ -2,34 +2,26 @@
 
 <div class="jumbotron">
 	<center>
-		<h1>Vagabond</h1>
+		<span class="lobster"> <h1>Vagabond</h1>
+		</span>
 		<h5>for pets!</h5><img src="http://www.cliparthut.com/clip-arts/363/pink-paw-print-clip-art-363553.png" style="width: 50px">
 	</center>
 
 </div>
 
 <div class="container">
-	<div class="col-md-4">
-
-		<iframe width='100%' height='250px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/robbbo.06b52a5c/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1Ijoicm9iYmJvIiwiYSI6IjU1YjFkNzRjOWE1NTY2NjcwOTczNjcxOGM1OWY1ZTBhIn0.zYjNIE5t0HaTrQhbE5Gpcg'></iframe>
-
-	</div>
-
-	<div class="col-md-1">
-	</div>
-	<div class="col-md-7"> 
-		<% @posts.each do |post| %>
-		<%= link_to post.title.titleize, post_path(post) %> <br>
-		Author: <%= post.user.first_name %>
-	    <%= link_to 'Delete', post_path(post), method: :delete, 
-	    	data: { confirm: 'Are you sure?' } %>
-	    <%= link_to 'Edit', edit_post_path(post) %> 
-	<% end  %> 
-	
-
-	</div>
-
-
-
-
+		<div class="col-md-5">
+			<iframe width='100%' height='250px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/robbbo.06b52a5c/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1Ijoicm9iYmJvIiwiYSI6IjU1YjFkNzRjOWE1NTY2NjcwOTczNjcxOGM1OWY1ZTBhIn0.zYjNIE5t0HaTrQhbE5Gpcg'></iframe>
+		</div>
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-6 well"> 
+			<% @posts.each do |post| %>
+			<%= link_to post.title.capitalize, post_path(post) %> - By: <%= link_to post.user.first_name.titleize, user_path(post.user_id) %> <br>
+<!--  -->
+		    <%= link_to '', post_path(post), method: :delete, 
+		    	data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %>
+		    <%= link_to '', edit_post_path(post), class: 'glyphicon glyphicon-pencil' %> <br> <br>
+		<% end  %> 
+		</div>
 </div>

@@ -6,6 +6,8 @@ get "/new", to: "posts#new"
 resources :posts do 
 	resources :comments
 	end
+get 'tags/:tag', to: 'posts#index', as: :tag
+resources :tags
 
 # User routes
 get "/signup", to: "users#new"

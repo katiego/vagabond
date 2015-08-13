@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "acts-as-taggable-on"
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'ffaker'
@@ -8,6 +10,7 @@ end
 
 # paperclip
 gem "paperclip", "~> 4.3"
+
 gem 'dotenv-rails', :groups => [:development, :test]
 # gem friendly_id
 gem 'friendly_id'

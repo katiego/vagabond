@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
   
     def index
+        if params[:tag]
+            @posts = Post.tagged_with(params[:tag])
+        else
         @posts = Post.all
-        @current_page = 'posts#index'
+        end
     end
 
     def show
@@ -56,7 +59,7 @@ class PostsController < ApplicationController
 
     private 
         def post_params
-            params.require(:post).permit(:title, :body, :author, :city_id)
+            params.require(:post).permit(:title, :body, :author, :city_id, :tag_list, :tag_list => [])
         end
 end
 ``

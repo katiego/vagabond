@@ -11,7 +11,13 @@
 				   Body: <%= f.text_area :body, class:"form-control" %>
 				 </p>
 
-				  <%= f.hidden_field :city_id, value: @city.id %>
+				 <%= f.hidden_field :city_id, value: @city.id %>
+				 
+				 <p>
+				 <%= f.label :tag_list, "Tags (separated by commas)" %>
+				 <%= f.text_field :tag_list %>
+				 </p>
+				 
 				 <p>
 				   <%= f.submit%>
 				 </p>

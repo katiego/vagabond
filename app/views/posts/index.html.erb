@@ -24,7 +24,7 @@
 			<div class= "well" >
 			
 			<%= link_to post.title.capitalize, post_path(post) %> - By: <%= link_to post.user.first_name.titleize, user_path(post.user_id) %> <br>
-				
+			Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>	
 		    		<br> <br>
 		   	</div>	
 				<% end  %> 

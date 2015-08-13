@@ -6,5 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-City.create([{name: 'San Francisco', city_img: 'https://images.unsplash.com/8/sf-rowing.JPG?q=80&fm=jpg&s=30aeb93c1a2a6d59d56c44674cd05d1f'}])
-City.create([{name: 'Portland', city_img: ''}])
+
+# City.create([{name: 'Portland', city_img: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Portland_and_Mt_Hood.jpg'}])
+# City.create([{name: 'London', city_img: 'http://www.startuproar.co.uk/wp-content/uploads/2014/08/london.jpg'}])
+# City.create([{name: 'Gibraltar', city_img: 'http://en.mercopress.com/data/cache/noticias/11557/0x0/gibraltar.jpg'}])
+
+City.create([{name: 'Carmel by the Sea', city_img: 'https://farm8.staticflickr.com/7162/6601550789_d29cc4caa0_b.jpg'}])

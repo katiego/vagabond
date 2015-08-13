@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   
     def index
         @posts = Post.all
+        @current_page = 'posts#index'
     end
 
     def show
@@ -16,15 +17,21 @@ class PostsController < ApplicationController
     end
 
     def edit
-        @post = Post.find(params[:id])
+        if current_user == @post.user
+            @post = Post.find(params[:id])
+        else redirect_to :back, error: "Please log in first"
+        end
     end
 
     def create
+        p params
+        @city = City.find(params[:post][:city_id])
         @post = current_user.posts.create(post_params)
 
         if @post.save
            redirect_to post_path(@post)
          else
+           flash[:error] = @post.errors.full_messages.join(", ")
            render 'new'
          end
     end
@@ -43,7 +50,7 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         @post.destroy
 
-        redirect_to profile_path
+        redirect_to :back
     end
 
 

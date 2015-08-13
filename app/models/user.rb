@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :posts, dependent: :destroy
+	has_many :comments, dependent: :destroy
 
 
 	has_attached_file :avatar,
@@ -8,6 +9,8 @@ class User < ActiveRecord::Base
 
  	validates :first_name, :last_name, :city, :email, :presence => true, 
  			length: {maximum: 255}
+
+ 	validates_uniqueness_of :email 
 
  	has_secure_password
 

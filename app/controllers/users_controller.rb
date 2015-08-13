@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params) 
       if @user.save 
        session[:user_id] = @user.id 
-       redirect_to '/profile'
+       redirect_to user_path(user)
       else 
        flash[:error] = @user.errors.full_messages.join(", ")
        redirect_to '/signup' 
@@ -20,11 +20,16 @@ class UsersController < ApplicationController
 
   def profile
       @user = User.find(session[:user_id])  
-   end
+  end
 
   def edit 
     @user = User.find(params[:id])
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   
   def update
     user = User.find(params[:id])

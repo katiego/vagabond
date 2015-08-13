@@ -1,19 +1,47 @@
 
 
 <div class="container">
-<div class="col-md-6">
-	<br>
-	<img src="<%= @city.city_img %>" class="city_img" />
+<div class="row">
+	
+	<div class="col-md-6 col-md-offset-3">
+		<br>
+		<img src="<%= @city.city_img %>" class="city_img" />
+	</div> 
+
 </div>
+
 <div class="col-md-6">
-	<h1>San Francisco</h1>
+	<h1> <%= @city.name %></h1>
 <p>
-	<% @city.posts.each do |post| %>
-		<%= link_to post.title.capitalize, post_path(post) %> - By: <%= post.user.first_name.titleize %> <br>
+	 <% @city.posts.each do |post| %>
+	 	<div class= "well" >
+		<%= link_to post.title.capitalize, post_path(post) %> - By: <%= link_to post.user.first_name.titleize, user_path(post.user_id)%> <br>
 		<!--  -->
+		<div style='margin-left: 2em;'>
+
+		<% post.comments.each do |comment| %>
+			Comments:
+		<p>
+	         <%= comment.body %> <br>
+	        By: <%= link_to comment.user.first_name.titleize, user_path(comment.user_id) %>
+
+	    	<% if comment.user == current_user %>	
+	        	<%= link_to '', [comment.post, comment],
+	              method: :delete,
+	              data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %>
+	    	<% end %>
+	    </p>
+		<% end %>
+		</div>
+	<% if post.user == current_user %>		
 		<%= link_to '', post_path(post), method: :delete, 
 			data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %>
-		<%= link_to '', edit_post_path(post), class: 'glyphicon glyphicon-pencil' %> <br> <br>
+		<%= link_to '', edit_post_path(post), class: 'glyphicon glyphicon-pencil' %> 
+	<% end %>
+	</div>
+
+	<br> 
+
 	<% end  %> 
 
 </p>

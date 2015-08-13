@@ -17,5 +17,9 @@
 
 .lobster {
 	font-family: 'Lobster', cursive;
+	font-size: 2em;
 }
 
+a {
+	color: #FF33CC;
+}

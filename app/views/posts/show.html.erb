@@ -1,13 +1,42 @@
 <div class="container">
 
-
-
-
+<div class="col-md-4"> 
 <h1> <%= @post.title %></h1>
 <p>
 <%= @post.body %>
 </p>
 
-<%= link_to "My Profile", profile_path %>
+<br><br><br>
+<h4>Comments</h4>
+	<% @post.comments.each do |comment| %>
+		<p>
+	        <%= comment.body %> <br>
+	        By: <%= link_to comment.user.first_name.titleize, user_path(comment.user_id) %>
 
+
+	    
+	    <% if comment.user == current_user %>	
+	        <%= link_to '', [comment.post, comment],
+	              method: :delete,
+	              data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %>
+	    <% end %>
+	    </p>
+	<% end %>
+
+<br><br><br>
+
+<h5>Add a comment:</h5>
+	<%= form_for([@post, @post.comments.build]) do |f| %>
+		<p>
+		    <%= f.text_area :body, class: 'form-control'%>
+		</p>
+		<p>
+		    <%= f.submit class: 'btn' %>
+		</p>
+	<% end %>
+
+<%= link_to "My Profile", user_path(current_user) %> -- 
+<%= link_to "City", city_path(@post.city_id) %>
+
+</div>
 </div>

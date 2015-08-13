@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 # Post routes
 root 'posts#index'
 get "/new", to: "posts#new"
-resources :posts
+resources :posts do 
+	resources :comments
+	end
 
 # User routes
 get "/signup", to: "users#new"
-get "/profile", to: "users#show"
+
 resources :users
 
 

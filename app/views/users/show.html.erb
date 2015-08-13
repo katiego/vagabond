@@ -4,7 +4,7 @@
         <br>
         <%= image_tag @user.avatar.url(:medium), class: "img-circle" %> <br><br>
         <p><%= @user.first_name.titleize %>  <%= @user.last_name.titleize %></p>
-        <p>Your Location: <%= @user.city %></p>
+        <p>Location: <%= @user.city %></p>
         <p>Join Date: <%= @user.created_at.strftime("%b %d, %Y") %> 
         <% if @user == current_user  %>
         <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_user_path(@user) %>   
@@ -22,6 +22,7 @@
                 data: { confirm: 'Are you sure?' } %>
             <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_post_path(post) %>  <br><br>
             <% end  %>  
+    <hr>
     <% end  %>         
     </div>
   </div>

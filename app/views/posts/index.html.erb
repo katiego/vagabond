@@ -22,8 +22,12 @@
 		<div class="col-md-6"> 
 			<% @posts.each do |post| %>
 			<div class= "well" >
+			<%= link_to user_path(post.user_id) do %>
+    			<%= image_tag post.user.avatar.url(:thumb), class: "img-circle" %>
+			<% end %>			
+			<%= link_to post.title.capitalize, post_path(post) %>  <br>
+
 			
-			<%= link_to post.title.capitalize, post_path(post) %> - By: <%= link_to post.user.first_name.titleize, user_path(post.user_id) %> <br>
 			Tags: <%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>	
 		    		<br> <br>
 		   	</div>	

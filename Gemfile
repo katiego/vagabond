@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'ffaker'
+  gem 'factory_girl_rails'
+end
+
 # paperclip
 gem "paperclip", "~> 4.3"
 gem 'dotenv-rails', :groups => [:development, :test]

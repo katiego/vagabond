@@ -41,7 +41,10 @@
 		</div><!-- /.container -->
 	</nav><!-- /.navbar -->
 	<!-- end of navigation bar -->
-
+<% flash.each do |name, msg| %>
+	<%= content_tag :div, msg, class: "
+	alert #{name == 'error' ? 'alert-danger' : 'alert-notice'}" %>
+<% end %>
 <%= yield %>
 
 </body>
